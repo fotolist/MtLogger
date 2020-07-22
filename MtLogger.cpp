@@ -72,7 +72,7 @@ namespace NS_MtLogger
 			toExit = true;
 			auto tp_start = std::chrono::system_clock::now();			
 			while (!logThreadExited) {
-				std::this_thread::sleep_for(std::chrono::microseconds(100));
+				std::this_thread::sleep_for(std::chrono::milliseconds(100));
 				auto tp_now = std::chrono::system_clock::now();
 				if (std::chrono::duration_cast<std::chrono::seconds>(tp_now - tp_start).count() > 30) {	//In some case, if there is to much message cached(e.g. >10000), exception thrown.
 					break;
